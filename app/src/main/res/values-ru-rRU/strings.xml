@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Передовой</string>
+    <string name="lan_english">Английский</string>
+    <string name="lan_russian">Русский</string>
+    <string name="lan_uzbek">Узбекский</string>
+
+    <plurals name="my_cats">
+        <item quantity="one">У меня %s кот</item>
+        <item quantity="few">У меня %s кота</item>
+        <item quantity="many">У меня %s кошек</item>
+    </plurals>
+
+</resources>

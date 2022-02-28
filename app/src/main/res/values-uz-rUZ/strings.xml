@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Yuqori</string>
+    <string name="lan_english">Ingliz tili</string>
+    <string name="lan_russian">Rus tili</string>
+    <string name="lan_uzbek">O`zbek tili</string>
+
+    <plurals name="my_cats">
+        <item quantity="one">Mening %s ta mushugim bor.</item>
+        <item quantity="other">Mening %s ta mushuklarim bor.</item>
+    </plurals>
+</resources>

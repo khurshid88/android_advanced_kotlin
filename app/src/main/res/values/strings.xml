@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Advanced</string>
+    <string name="lan_english">English</string>
+    <string name="lan_russian">Russian</string>
+    <string name="lan_uzbek">Uzbek</string>
+
+    <plurals name="my_cats">
+        <item quantity="one">I have %s cat</item>
+        <item quantity="other">I have %s cats</item>
+    </plurals>
+</resources>
