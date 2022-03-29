@@ -454,7 +454,3 @@ class StorageActivity : AppCompatActivity() {
     }
 
 }
-
-
-//https://www.youtube.com/watch?v=TkOzcyzH1hU&list=PLQkwcJG4YTCR9jZq8O19nUL2hLqmLYX4M
-//https://github.com/philipplackner/AndroidStorage/blob/Part4-ModifyingFilesExternalStorage/app/src/main/java/com/plcoding/androidstorage/MainActivity.kt
