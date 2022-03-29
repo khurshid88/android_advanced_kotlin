@@ -15,31 +15,11 @@ class MyApplication : Application() {
     companion object {
         val TAG = MyApplication::class.java.simpleName
         var instance: MyApplication? = null
-        var localeManager: LocaleManager? = null
     }
 
     override fun onCreate() {
         super.onCreate()
         instance = this
-        localeManager = LocaleManager(this)
-        localeManager!!.setLocale(this)
-
-        initRealm()
-    }
-
-    private fun initRealm() {
-        Realm.init(this)
-        val config = RealmConfiguration.Builder()
-            .allowWritesOnUiThread(true)
-            .deleteRealmIfMigrationNeeded()
-            .build()
-        Realm.setDefaultConfiguration(config)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        localeManager!!.setLocale(this)
-        Log.d(TAG, "onConfigurationChanged: " + newConfig.locale.language)
     }
 
     val requestQueue: RequestQueue? = null

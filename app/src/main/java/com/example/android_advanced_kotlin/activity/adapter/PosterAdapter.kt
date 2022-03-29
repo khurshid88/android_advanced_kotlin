@@ -38,9 +38,7 @@ class PosterAdapter(var activity: NetworkActivity, var items: ArrayList<Poster>)
         }
     }
 
-    inner class PosterViewHolder(var view: View) : RecyclerView.ViewHolder(
-        view
-    ) {
+    inner class PosterViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
         var ll_poster: LinearLayout
         var tv_title: TextView
         var tv_body: TextView
@@ -50,10 +48,5 @@ class PosterAdapter(var activity: NetworkActivity, var items: ArrayList<Poster>)
             tv_title = view.findViewById(R.id.tv_title)
             tv_body = view.findViewById(R.id.tv_body)
         }
-    }
-
-    init {
-        this.activity = activity
-        this.items = items
     }
 }

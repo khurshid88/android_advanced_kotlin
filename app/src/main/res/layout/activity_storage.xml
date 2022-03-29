@@ -37,7 +37,8 @@
             android:id="@+id/b_delete_int"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Delete Internal" />
+            android:text="Delete Internal"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +65,24 @@
             android:id="@+id/b_delete_ext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Delete External" />
+            android:text="Delete External"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Save Photo in Internal or External"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/b_camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Take Photo" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,19 +25,19 @@ class LanguageActivity: AppCompatActivity(){
         val b_english = findViewById<Button>(R.id.b_english)
         b_english.setOnClickListener {
             //setLocale("en");
-            MyApplication.localeManager!!.setNewLocale(context, LocaleManager.LANGUAGE_ENGLISH)
+            //MyApplication.localeManager!!.setNewLocale(context, LocaleManager.LANGUAGE_ENGLISH)
             finish()
         }
         val b_russian = findViewById<Button>(R.id.b_russian)
         b_russian.setOnClickListener {
             //setLocale("ru")
-            MyApplication.localeManager!!.setNewLocale(context, LocaleManager.LANGUAGE_RUSSIAN)
+            //MyApplication.localeManager!!.setNewLocale(context, LocaleManager.LANGUAGE_RUSSIAN)
             finish()
         }
         val b_uzbek = findViewById<Button>(R.id.b_uzbek)
         b_uzbek.setOnClickListener {
             //setLocale("uz")
-            MyApplication.localeManager!!.setNewLocale(context, LocaleManager.LANGUAGE_UZBEK)
+            //MyApplication.localeManager!!.setNewLocale(context, LocaleManager.LANGUAGE_UZBEK)
             finish()
         }
 

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val b_home = findViewById<Button>(R.id.b_home)
         b_home.text = getString(R.string.app_name)
         b_home.setOnClickListener {
-            callLanguageActivity()
+            callStorageActivity()
         }
     }
 

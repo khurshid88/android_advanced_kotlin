@@ -10,11 +10,15 @@ import com.example.android_advanced_kotlin.R
 import com.example.android_advanced_kotlin.activity.adapter.PosterAdapter
 import com.example.android_advanced_kotlin.activity.model.Poster
 import com.example.android_advanced_kotlin.activity.model.PosterResp
+import com.example.android_advanced_kotlin.activity.network.async.AsyncHttp
 import com.example.android_advanced_kotlin.activity.network.retrofit.RetrofitHttp
 import com.example.android_advanced_kotlin.activity.network.volley.VolleyHandler
 import com.example.android_advanced_kotlin.activity.network.volley.VolleyHttp
+import com.example.android_advanced_kotlin.activity.utils.Logger
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
+import com.loopj.android.http.AsyncHttpResponseHandler
+import cz.msebera.android.httpclient.Header
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,15 +58,40 @@ class NetworkActivity : BaseActivity(){
             .show()
     }
 
+    fun apiPostList(){
+
+        AsyncHttp.get(AsyncHttp.API_LIST_POST, AsyncHttp.paramsEmpty(), object: AsyncHttpResponseHandler(){
+            override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
+
+            }
+
+            override fun onFailure(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?, error: Throwable?) {
+
+            }
+        })
+
+        val poster = Poster(1, 1, "PDP", "Online")
+
+        AsyncHttp.post(this, AsyncHttp.API_CREATE_POST, AsyncHttp.paramsCreate(poster), object: AsyncHttpResponseHandler(){
+            override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
+
+            }
+
+            override fun onFailure(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?, error: Throwable?) {
+
+            }
+        })
+
+
+
+    }
     private fun apiPosterList() {
         VolleyHttp.get(VolleyHttp.API_LIST_POST, VolleyHttp.paramsEmpty(),object : VolleyHandler {
             override fun onSuccess(response: String?) {
                 val postArray = Gson().fromJson(response, Array<Poster>::class.java)
-                for (poster in postArray) {
-                    posters.add(poster)
-                }
+                posters.clear()
+                posters.addAll(postArray)
                 refreshAdapter(posters)
-                Log.d("@@@onResponse ", "" + posters.size)
             }
 
             override fun onError(error: String?) {
@@ -72,6 +101,7 @@ class NetworkActivity : BaseActivity(){
     }
 
     private fun apiPosterDelete(poster: Poster) {
+
         VolleyHttp.del(VolleyHttp.API_DELETE_POST + poster.id,object : VolleyHandler {
             override fun onSuccess(response: String?) {
                 Log.d("@@@",response!!)
@@ -88,11 +118,11 @@ class NetworkActivity : BaseActivity(){
 
         RetrofitHttp.posterService.listPost().enqueue(object : Callback<ArrayList<PosterResp>> {
             override fun onResponse(call: Call<ArrayList<PosterResp>>, response: Response<ArrayList<PosterResp>>) {
-                Log.d("@@@", response.body().toString())
+                Logger.d("@@@", response.body().toString())
             }
 
             override fun onFailure(call: Call<ArrayList<PosterResp>>, t: Throwable) {
-                Log.d("@@@", t.message.toString())
+                Logger.e("@@@", t.message.toString())
             }
         })
 
@@ -132,15 +162,16 @@ class NetworkActivity : BaseActivity(){
 
     fun workWithVolley(){
 
-        VolleyHttp.get(VolleyHttp.API_LIST_POST, VolleyHttp.paramsEmpty(),object : VolleyHandler {
-            override fun onSuccess(response: String?) {
-
-            }
-
-            override fun onError(error: String?) {
-
-            }
-        })
+//        VolleyHttp.get(VolleyHttp.API_LIST_POST, VolleyHttp.paramsEmpty(),object : VolleyHandler {
+//            override fun onSuccess(response: String?) {
+//                Logger.d("VolleyHttp",response!!)
+//                tv_text.text = response
+//            }
+//
+//            override fun onError(error: String?) {
+//                Logger.e("VolleyHttp",error!!)
+//            }
+//        })
 
 
 
@@ -148,11 +179,11 @@ class NetworkActivity : BaseActivity(){
         VolleyHttp.post(VolleyHttp.API_CREATE_POST, VolleyHttp.paramsCreate(poster),object :
             VolleyHandler {
             override fun onSuccess(response: String?) {
-                Log.d("@@@",response!!)
+                Logger.d("@@@",response!!)
             }
 
             override fun onError(error: String?) {
-                Log.d("@@@",error!!)
+                Logger.d("@@@",error!!)
             }
         })
 
