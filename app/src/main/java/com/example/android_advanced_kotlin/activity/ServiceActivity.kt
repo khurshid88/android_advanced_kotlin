@@ -15,6 +15,7 @@ import com.example.android_advanced_kotlin.activity.services.StartedService
 class ServiceActivity : AppCompatActivity() {
     var boundService: BoundService? = null
     var isBound = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service)
@@ -39,12 +40,14 @@ class ServiceActivity : AppCompatActivity() {
         }
     }
 
-    fun startStartedService() {
-        startService(Intent(this, StartedService::class.java))
+    private fun startStartedService() {
+        val intent = Intent(this, StartedService::class.java)
+        startService(intent)
     }
 
-    fun stopStartedService() {
-        stopService(Intent(this, StartedService::class.java))
+    private fun stopStartedService() {
+        val intent = Intent(this, StartedService::class.java)
+        stopService(intent)
     }
 
     fun startBoundService() {

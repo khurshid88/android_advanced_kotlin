@@ -20,11 +20,7 @@ class BoundService : Service() {
         mChronometer!!.base = SystemClock.elapsedRealtime()
         mChronometer!!.onChronometerTickListener =
             OnChronometerTickListener { chronometer ->
-                Toast.makeText(
-                    application,
-                    chronometer.base.toString(),
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(application, chronometer.base.toString(), Toast.LENGTH_LONG).show()
             }
         mChronometer!!.start()
     }
@@ -50,9 +46,6 @@ class BoundService : Service() {
         mChronometer!!.stop()
     }
 
-    companion object{
-
-    }
     val timestamp: String
         get() {
             val elapsedMillis = SystemClock.elapsedRealtime() - mChronometer!!.base
@@ -65,7 +58,6 @@ class BoundService : Service() {
         }
 
     inner class MyBinder : Binder() {
-        // Return this instance of LocalService so clients can call public methods
         fun getService(): BoundService = this@BoundService
     }
 }

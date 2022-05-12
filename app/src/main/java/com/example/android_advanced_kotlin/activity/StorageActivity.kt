@@ -67,14 +67,12 @@ class StorageActivity : AppCompatActivity() {
     }
 
     private fun requestPermissions() {
-        val hasReadPermission = ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.READ_EXTERNAL_STORAGE
-        ) == PackageManager.PERMISSION_GRANTED
+        val hasReadPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
         val hasWritePermission = ContextCompat.checkSelfPermission(
             this,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         ) == PackageManager.PERMISSION_GRANTED
+
         val minSdk29 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
         readPermissionGranted = hasReadPermission
         writePermissionGranted = hasWritePermission || minSdk29
@@ -454,3 +452,6 @@ class StorageActivity : AppCompatActivity() {
     }
 
 }
+
+//https://www.youtube.com/watch?v=TkOzcyzH1hU&list=PLQkwcJG4YTCR9jZq8O19nUL2hLqmLYX4M
+//https://github.com/philipplackner/AndroidStorage/blob/Part4-ModifyingFilesExternalStorage/app/src/main/java/com/plcoding/androidstorage/MainActivity.kt

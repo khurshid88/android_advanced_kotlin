@@ -20,12 +20,6 @@ class ReceiverActivity : AppCompatActivity() {
 
     fun initViews() {
         receiver = NetworkBroadcastReceiver()
-
-        val tv_boot = findViewById<TextView>(R.id.tv_boot)
-        val b_send = findViewById<Button>(R.id.b_send)
-        b_send.setOnClickListener {
-
-        }
     }
 
     override fun onStart() {
